@@ -31,6 +31,7 @@ def default_dest():
 
 def fetch_manifest(dest):
     """Grab filelist.txt (~16 KB): the per-sample inventory."""
+    os.makedirs(dest, exist_ok=True)
     path = os.path.join(dest, "filelist.txt")
     urllib.request.urlretrieve(MANIFEST_URL, path)
     print(f"manifest: {path}")
